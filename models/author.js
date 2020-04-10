@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Author.associate = function(models) {
-    Author.hasMany(models.Book, { as: "books" });
+  Author.associate = models => {
+    Author.hasMany(models.Book, { as: 'books' });
   };
   return Author;
 };

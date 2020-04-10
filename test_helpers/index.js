@@ -22,6 +22,15 @@ process.on('unhandledRejection', (reason, p) => {
 });
 */
 
+//set up chai
+const chai = require('chai')
+const expect = chai.expect
+const sinonChai =require('sinon-chai')
+const chaiSubset = require('chai-subset')
+
+chai.use(sinonChai)
+chai.use(chaiSubset)
+
 beforeEach((done) => {
   Models.sequelize.sync({ force: true }).then(() => {
     done();
@@ -29,6 +38,7 @@ beforeEach((done) => {
 });
 
 module.exports = {
-  factory: factory,
-  Models: Models,
+  factory,
+  Models,
+  expect
 };
